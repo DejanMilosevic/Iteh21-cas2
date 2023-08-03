@@ -14,7 +14,7 @@
 
         public static function logInUser($usr, mysqli $conn){
             $query = "SELECT * FROM user WHERE username='$usr->username' AND password='$usr->password'";
-            echo $query;
+            
             return $conn->query($query);
         }
     }
