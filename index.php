@@ -19,7 +19,7 @@
             $korisnik = new User(1, $uname, $upass);
 
             $odg = User::logInUser($korisnik, $conn);
-            if($odg == true && $odg->num_rows==1){
+            if($odg->num_rows==1){
                 echo `<script>
                     console.log("Uspesno ste se prijavili");
                 </script>`;
