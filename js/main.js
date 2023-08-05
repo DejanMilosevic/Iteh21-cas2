@@ -1,3 +1,25 @@
+function prikazi(){
+    var x = document.getElementById("pregled");
+    if(x.style.display === "none"){
+        x.style.display = "block";
+    }
+    else{
+        x.style.display = "none";
+    }
+}
+
+function prikaziPretragu(){
+    var x = document.getElementById("myInput");
+    if(x.style.display === "none"){
+        x.style.display = "block";
+    }
+    else{
+        x.style.display = "none";
+    }
+}
+
+
+
 $('#dodajForm').submit(function(){
     event.preventDefault();
     console.log("Dodaj je pokrenuto");
