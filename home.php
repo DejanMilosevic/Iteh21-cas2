@@ -1,4 +1,29 @@
+<?php
 
+    require "dbBroker.php";
+    require "model/prijava.php";
+
+    session_start();
+
+    if(!isset($_SESSION['user_id'])){
+        header('Location:index.php');
+        exit();
+    }
+
+    $rezultat = Prijava::getAll($conn);
+
+    if(!$rezultat){
+        echo "Doslo je do greske prilikom izvrsenja upita! <br>";
+        die();
+    }
+
+    if($rezultat->num_rows == 0){
+        echo "Nema prijavljenih kolokvijuma";
+        die();
+    }
+    else{
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +72,7 @@
             </thead>
             <tbody>
             <?php
-            while ($red = $result->fetch_array()) {
+            while($red = $rezultat->fetch_array()):
                 ?>
                 <tr>
                     <td><?php echo $red["predmet"] ?></td>
@@ -62,7 +87,8 @@
                     </td>
 
                 </tr>
-                <?php
+            <?php
+            endwhile;
             }
             ?>
             </tbody>
