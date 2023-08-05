@@ -29,7 +29,7 @@
                     $myArray[] = $red;
                 }
             }
-            return $red;
+            return $myArray;
         }
 
         public function deleteById(mysqli $conn){
@@ -43,7 +43,7 @@
         }
 
         public function update(mysqli $conn){
-            $query = "UPDATE prijave WHERE id=$this->id SET predmet='$this->predmet', katedra='$this->katedra', sala='$this->sala', datum='$this->datum'";
+            $query = "UPDATE prijave SET predmet='$this->predmet', katedra='$this->katedra', sala='$this->sala', datum='$this->datum' WHERE id=$this->id";
             return $conn->query($query);
         }
     }
